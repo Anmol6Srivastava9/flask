@@ -8,7 +8,7 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def hello_world():
-    return "<h1>Hello, World! HIII</h1>"
+    return "<h1>Hello, World! HIII ready</h1>"
 
 @app.route("/yourendpoint", methods=['POST','GET'])
 def receive_data():
@@ -23,4 +23,4 @@ def receive_data():
         return jsonify({"error": str(e)}), 500
 
 # if __name__=="__main__":
-#     app.run(host="0.0.0.0")
+#     app.run(host="0.0.0.0",port=5000))
