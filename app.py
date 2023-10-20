@@ -24,9 +24,7 @@ def receive_data():
                 data = {"sensorval1": sensorval1}
                 # Store the data in MongoDB
                 mongo.db.sensordata.insert_one(data)
-                response = Response("Data received and stored successfully", status=201)
-                response.headers['Connection'] = 'keep-alive'
-                return response
+                return jsonify({"message": "Data received and stored successfully"}), 201
             else:
                 return jsonify({"error": "sensorval1 parameter is missing in the GET request"}), 400
     except Exception as e:
